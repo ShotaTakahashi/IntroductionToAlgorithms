@@ -1,6 +1,11 @@
 package algorithms
 
-func InsertionSort(list []int) []int {
+import "errors"
+
+func InsertionSort(list []int) ([]int, error) {
+	if list == nil {
+		return []int{}, errors.New("nil")
+	}
 	for j := 1; j < len(list); j++ {
 		key := list[j]
 		i := j-1
@@ -10,5 +15,5 @@ func InsertionSort(list []int) []int {
 		}
 		list[i+1] = key
 	}
-	return list
+	return list, nil
 }
