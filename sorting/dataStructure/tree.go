@@ -29,10 +29,10 @@ func IsBinarySearchTree(root Node) bool {
 	return false
 }
 
-func TreeSearch(root Node, key int) (Node, bool) {
+func TreeSearch(root Node, key int) (*Node, bool) {
 	for &root != nil && key != root.Key {
 		if root.Left == nil && root.Right == nil {
-			continue
+			return nil, false
 		}
 		if key < root.Key {
 			root = *root.Left
@@ -40,5 +40,5 @@ func TreeSearch(root Node, key int) (Node, bool) {
 			root = *root.Right
 		}
 	}
-	return root, true
+	return &root, true
 }
