@@ -1,12 +1,16 @@
 package algorithms
 
-import "errors"
+import (
+	"errors"
+)
 
 func QuickSort(list []int) ([]int, error) {
-	if list == nil {
+	unsorted := make([]int, len(list))
+	copy(unsorted, list)
+	if unsorted == nil {
 		return []int{}, errors.New("nil")
 	}
-	return quickSort(list, 0, len(list)-1), nil
+	return quickSort(unsorted, 0, len(unsorted)-1), nil
 }
 
 func partition(list []int, p, r int) int {

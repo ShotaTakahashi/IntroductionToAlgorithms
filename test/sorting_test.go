@@ -17,8 +17,8 @@ func TestSorting(t *testing.T) {
 			expected: []int{2, 4, 8, 10, 11, 12},
 		},
 		{
-			unsorted: []int{22, 32, 8, 64, 42, 53, 99},
-			expected: []int{8, 22, 32, 42, 53, 64, 99},
+			unsorted: []int{22, 32, 8, 5, 42, 53, 99},
+			expected: []int{5, 8, 22, 32, 42, 53, 99},
 		},
 		{
 			unsorted: nil,

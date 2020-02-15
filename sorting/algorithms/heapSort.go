@@ -3,10 +3,12 @@ package algorithms
 import "errors"
 
 func HeapSort(list []int) ([]int, error) {
-	if list == nil {
+	unsorted := make([]int, len(list))
+	copy(unsorted, list)
+	if unsorted == nil {
 		return []int{}, errors.New("nil")
 	}
-	maxHeap := buildMaxHeap(list)
+	maxHeap := buildMaxHeap(unsorted)
 	size := len(maxHeap) - 1
 	for i := size; i > 0; i-- {
 		maxHeap[0], maxHeap[i] = maxHeap[i], maxHeap[0]
@@ -18,7 +20,7 @@ func HeapSort(list []int) ([]int, error) {
 
 func buildMaxHeap(list []int) (result []int) {
 	for i := len(list) / 2; i > -1; i-- {
-		result = maxHeapify(list, i, len(list) - 1)
+		result = maxHeapify(list, i, len(list)-1)
 	}
 	return result
 }
@@ -45,7 +47,7 @@ func maxHeapify(list []int, i, size int) []int {
 }
 
 func left(i int) int {
-	return 2 * i + 1
+	return 2*i + 1
 }
 
 func right(i int) int {
