@@ -27,4 +27,5 @@ func main() {
 	n4 := ds.Node{Key: 7, Left: nil, Right: &n3}
 	root := ds.Node{Key: 6, Left: &n2, Right: &n4}
 	fmt.Println(ds.IsBinarySearchTree(root))
+	// fmt.Println(ds.TreeSearch(root, 3))
 }
