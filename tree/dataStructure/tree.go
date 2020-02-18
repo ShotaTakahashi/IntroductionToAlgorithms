@@ -42,3 +42,17 @@ func TreeSearch(root Node, key int) (*Node, bool) {
 	}
 	return &root, true
 }
+
+func TreeMinimum(root Node) *Node {
+	for root.Left != nil {
+		root = *root.Left
+	}
+	return &root
+}
+
+func TreeMaximum(root Node) *Node {
+	for root.Right != nil {
+		root = *root.Right
+	}
+	return &root
+}
